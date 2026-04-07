@@ -1,0 +1,160 @@
+.cta-section {
+  width: 100%;
+  padding: 100px 20px;
+  background-color: #1a1a1c;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.cta-container {
+  width: 100%;
+  max-width: 1200px;
+  height: 600px;
+  background-color: #212124;
+  border-radius: 40px;
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden; /* Clips the phones outside the box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+
+  /* The subtle background grid */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: center center;
+}
+
+/* --- Center Text Content --- */
+.cta-content {
+  text-align: center;
+  position: relative;
+  z-index: 5; /* Keep above the phones */
+  max-width: 700px;
+}
+
+.cta-content h2 {
+  font-size: 3rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.highlight-orange {
+  color: #fbd196;
+}
+
+.cta-content h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.cta-content p {
+  color: #a1a1aa;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* --- Parallax Phone Mockups --- */
+.cta-phone-left-wrapper {
+  position: absolute;
+  bottom: -150px;
+  left: 70px;
+  width: 200px;
+  z-index: 1;
+  /* Transform is handled inline by React for the scroll effect */
+  transition: transform 0.1s linear;
+}
+
+.cta-phone-right-wrapper {
+  position: absolute;
+  top: -150px;
+  right: 70px;
+  width: 200px;
+  rotate: calc(270deg);
+  z-index: 1;
+  /* Transform is handled inline by React for the scroll effect */
+  transition: transform 0.1s linear;
+}
+
+.cta-phone-img {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6));
+}
+
+/* Glowing Orbs Behind Phones */
+.cta-glow {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(
+    circle,
+    rgba(249, 139, 17, 0.8) 0%,
+    transparent 70%
+  );
+  filter: blur(50px);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.left-glow {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.right-glow {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  .cta-container {
+    padding: 150px 20px; /* More padding top/bottom so phones don't cover text */
+  }
+
+  .cta-content h2 {
+    font-size: 2.2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Make phones smaller on mobile so they fit nicely */
+  .cta-phone-left-wrapper,
+  .cta-phone-right-wrapper {
+    width: 200px;
+  }
+
+  .cta-phone-left-wrapper {
+    bottom: -80px;
+    left: -50px;
+  }
+
+  .cta-phone-right-wrapper {
+    top: -80px;
+    right: -50px;
+  }
+}

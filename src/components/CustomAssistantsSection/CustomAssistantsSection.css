@@ -1,0 +1,300 @@
+.assistants-section {
+  width: 100%;
+  padding: 100px 20px;
+  background-color: #1a1a1c; /* Dark background */
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.assistants-container {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Header Section Styles --- */
+.assistants-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.assistants-header h1 {
+  font-size: 3.5rem;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.assistants-header .design-highlight {
+  color: #fbd196; /* Matching the soft orange in "Custom AI Assistan...ts" */
+}
+
+.assistants-header p {
+  color: #a1a1aa;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.assistants-downloads {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-white {
+  background-color: #ffffff;
+  color: #1a1a1c;
+  border: 1px solid #ffffff;
+}
+
+.btn-white:hover {
+  background-color: #e2e2e2;
+}
+
+.btn-outlined {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.btn-outlined:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Main Interaction Area --- */
+.assistants-main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Image on left, tabs on right */
+  gap: 60px;
+  align-items: center;
+}
+
+/* LEFT COLUMN: Image display */
+.assistant-display-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The ambient orange glow effect */
+.assistant-display-image .glowing-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(249, 139, 17, 0.5) 0%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.portrait-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  aspect-ratio: 1/1; /* Ensure portrait holds space */
+  border-radius: 20px;
+  object-fit: cover; /* Important for portrait aspect */
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
+
+/* RIGHT COLUMN: Tab/Accordion list */
+.assistant-tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.assistant-tab-row {
+  background-color: #2a2a2d; /* Inactive tab grey */
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.4s ease; /* Smooth transition when active state changes */
+  overflow: hidden; /* Important for accordion expand animation */
+}
+
+/* ACTIVE STATE styles */
+.assistant-tab-row.tab-active {
+  background-color: #f98b11; /* Vibrant orange active background */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.tab-header-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+}
+
+.tab-icon-and-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tab-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #38383c;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.tab-active .tab-icon {
+  background-color: transparent; /* Remove grey icon bg on orange tab */
+}
+
+.tab-header-area h3 {
+  font-size: 1.6rem;
+  color: #ffffff;
+  font-weight: 500;
+  margin: 0;
+}
+
+.tab-active .tab-header-area h3 {
+  color: #1a1a1c; /* Dark text on orange tab */
+}
+
+.tab-arrow {
+  color: #a1a1aa;
+  transition: transform 0.3s ease;
+}
+
+.tab-active .tab-arrow {
+  color: #1a1a1c; /* Dark text on orange tab */
+}
+
+.tab-arrow.arrow-rotate {
+  transform: rotate(180deg);
+}
+
+/* --- Accordion Expand/Collapse Animation --- */
+.tab-description-container {
+  display: grid;
+  grid-template-rows: 0fr; /* Collapsed: height 0 */
+  transition: grid-template-rows 0.4s ease;
+  padding: 0 24px 0 92px; /* Offset text to align with title, remove vertical padding */
+}
+
+.tab-description-container.desc-expanded {
+  grid-template-rows: 1fr; /* Expanded: height based on content */
+  padding-bottom: 24px; /* Restore vertical padding when expanded */
+}
+
+.tab-description {
+  overflow: hidden;
+  color: #1a1a1c; /* Dark text on orange */
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 992px) {
+  .assistants-header h1 {
+    font-size: 2.8rem;
+  }
+
+  .assistants-main {
+    grid-template-columns: 1fr; /* Stack columns */
+    gap: 40px;
+  }
+
+  .assistant-display-image {
+    grid-row: 1; /* Move image to top */
+  }
+
+  .tab-description-container {
+    padding: 0 24px 0 24px; /* Less offset on mobile */
+  }
+}
+
+.assistants-cards-glow {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  width: 650px;
+  height: 550px;
+
+  /* Switched to a slightly more solid base so the morphing shape is visible through the blur */
+  filter: blur(60px);
+  z-index: 0;
+
+  /* Runs two animations at the same time at different speeds for natural chaos */
+  animation:
+    organic-morph 4s ease-in-out infinite alternate,
+    breathing-spin 8s linear infinite;
+}
+
+/* 1. The Shape Shifter: Smoothly transitions between irregular blob shapes */
+@keyframes organic-morph {
+  0% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    background: rgba(249, 139, 17, 0.6);
+  }
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+    background: rgba(249, 139, 17, 0.7);
+  }
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    background: rgba(249, 226, 17, 0.6);
+  }
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+    background: rgba(249, 139, 17, 0.7);
+  }
+  100% {
+    border-radius: 73% 27% 26% 74% / 73% 36% 64% 27%;
+    background: rgba(249, 139, 17, 0.6);
+  }
+}
+
+/* 2. The Lungs & Movement: Scales up and down while rotating smoothly */
+@keyframes breathing-spin {
+  0% {
+    /* Must keep the -50% translate to stay centered */
+    transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
+  }
+  33% {
+    transform: translate(-50%, -50%) scale(1.1) rotate(120deg);
+  }
+  66% {
+    transform: translate(-50%, -50%) scale(0.85) rotate(240deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8) rotate(360deg);
+  }
+}

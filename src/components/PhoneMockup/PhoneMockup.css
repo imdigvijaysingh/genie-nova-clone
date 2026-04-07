@@ -1,0 +1,26 @@
+.phone-wrapper {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  width: 320px;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 200px);
+  animation: phoneRise 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 2.5s;
+}
+
+.phone-mockup {
+  width: 95%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes phoneRise {
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

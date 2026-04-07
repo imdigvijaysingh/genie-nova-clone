@@ -1,0 +1,79 @@
+/* Global Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+body {
+  background-color: #1a1a1c;
+  color: white;
+  /* REMOVED overflow: hidden; so the page can scroll naturally */
+}
+
+/* NEW: Creates vertical space so the user can scroll down */
+.scroll-wrapper {
+  height: 300vh;
+  background-color: #1a1a1c;
+}
+
+/* NEW: Sticks to the screen while scrolling through the wrapper */
+.sticky-hero-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; /* Keeps parallax elements from bleeding off edges */
+}
+
+/* NEW: The separated Glow Layers */
+.glow-scroll-controller {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.background-glow-animated {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 120%,
+    rgba(249, 139, 17, 0.9) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transform: translateY(200px);
+  animation: glowRise 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes glowRise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Layout wrapper for HeroText and SubHero */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  z-index: 1;
+}
+/* Creates the scrolling track for the overlapping tool sections */
+.tools-stack-wrapper {
+  position: relative;
+  width: 100%;
+}
