@@ -46,7 +46,7 @@ const CtaSection = () => {
             transform: `translate(${pushInward}px, ${pushInward}px) rotate(50deg)`,
           }}
         >
-          <div className="cta-glow left-glow"></div>
+          <div className="cta-cards-left-glow"></div>
           <img
             src={mockupLeft}
             alt="App Interface Left"
@@ -61,7 +61,7 @@ const CtaSection = () => {
             transform: `translate(-${pushInward}px, -${pushInward}px) rotate(-50deg)`,
           }}
         >
-          <div className="cta-glow right-glow"></div>
+          <div className="cta-cards-right-glow"></div>
           <img
             src={mockupRight}
             alt="App Interface Right"
@@ -90,7 +90,7 @@ const CtaSection = () => {
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
-                <path d="M17.05 20.28c-.98.95-2.05 1.78-3.1 1.76-1.11-.02-1.46-.68-2.73-.68-1.28 0-1.68.66-2.73.69-1.05.02-2.13-.82-3.12-1.78-2-1.96-3.05-5.32-3.05-8.25 0-2.88 1.63-4.41 3.2-4.41 1.1 0 1.93.61 2.65.61.71 0 1.8-.68 3.12-.68 1.11 0 2.21.5 3.01 1.48-2.58 1.5-2.15 5.15.53 6.31-.96 1.78-2.18 3.52-3.78 4.95zM12.03 7.25c-.21-2.48 1.81-4.63 4.21-4.82.26 2.58-1.78 4.69-4.21 4.82z" />
+                <path d="M17 19.12H7V4.88h10M16.5 2H7.5A1.5 1.5 0 0 0 6 3.5v17A1.5 1.5 0 0 0 7.5 22h9a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 16.5 2z" />
               </svg>
               Download For IOS
             </button>

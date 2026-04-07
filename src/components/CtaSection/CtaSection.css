@@ -91,6 +91,79 @@
   /* Transform is handled inline by React for the scroll effect */
   transition: transform 0.1s linear;
 }
+.cta-cards-left-glow {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  width: 250px;
+  height: 350px;
+
+  /* Switched to a slightly more solid base so the morphing shape is visible through the blur */
+  filter: blur(60px);
+  z-index: 0;
+
+  /* Runs two animations at the same time at different speeds for natural chaos */
+  animation:
+    organic-morph 4s ease-in-out infinite alternate,
+    breathing-spin 8s linear infinite;
+}
+.cta-cards-right-glow {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  width: 250px;
+  height: 350px;
+
+  /* Switched to a slightly more solid base so the morphing shape is visible through the blur */
+  filter: blur(60px);
+  z-index: 0;
+
+  /* Runs two animations at the same time at different speeds for natural chaos */
+  animation:
+    organic-morph 4s ease-in-out infinite alternate,
+    breathing-spin 8s linear infinite;
+}
+
+/* 1. The Shape Shifter: Smoothly transitions between irregular blob shapes */
+@keyframes organic-morph {
+  0% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    background: rgba(249, 139, 17, 0.6);
+  }
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+    background: rgba(249, 139, 17, 0.7);
+  }
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    background: rgba(249, 226, 17, 0.6);
+  }
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+    background: rgba(249, 139, 17, 0.7);
+  }
+  100% {
+    border-radius: 73% 27% 26% 74% / 73% 36% 64% 27%;
+    background: rgba(249, 139, 17, 0.6);
+  }
+}
+
+/* 2. The Lungs & Movement: Scales up and down while rotating smoothly */
+@keyframes breathing-spin {
+  0% {
+    /* Must keep the -50% translate to stay centered */
+    transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
+  }
+  33% {
+    transform: translate(-50%, -50%) scale(1.1) rotate(120deg);
+  }
+  66% {
+    transform: translate(-50%, -50%) scale(0.85) rotate(240deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8) rotate(360deg);
+  }
+}
 
 .cta-phone-img {
   width: 100%;

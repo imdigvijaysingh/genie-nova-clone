@@ -182,8 +182,19 @@
   white-space: nowrap;
 }
 
-.text-orange {
-  color: #f98b11;
+.text-gradient {
+  /* Carefully calibrated color stops to match your image */
+  background: linear-gradient(to right, #ffffff 5%, #ffdeb3 45%, #ffaa2b 95%);
+
+  /* Clips the gradient to the exact shape of the letters */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Makes the actual text invisible so the background gradient shows through */
+  color: transparent;
+
+  /* Ensures the gradient scales correctly across just this word */
+  display: inline-block;
 }
 
 .marquee-star {

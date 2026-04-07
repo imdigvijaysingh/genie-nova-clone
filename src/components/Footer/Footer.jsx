@@ -6,7 +6,7 @@ const Footer = () => {
   const marqueeItems = [...Array(10)].map((_, i) => (
     <div key={i} className="marquee-item">
       <span className="marquee-text">
-        GENIE<span className="text-orange">AI*</span>
+        GENIE<span className="text-gradient">AI*</span>
       </span>
     </div>
   ));

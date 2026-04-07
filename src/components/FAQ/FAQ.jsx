@@ -62,7 +62,7 @@ const FAQ = () => {
         {/* Left Column: Header */}
         <div className="faq-left">
           <h2>
-            Your Questio<span className="highlight-orange">ns,</span>
+            Your Ques<span className="text-gradient">tions,</span>
             <br />
             Answered
           </h2>
