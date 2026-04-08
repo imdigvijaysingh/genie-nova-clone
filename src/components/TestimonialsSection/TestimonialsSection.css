@@ -10,7 +10,7 @@
 
 .testimonials-container {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1300px; /* Controls the maximum width of the full-width rows */
   display: flex;
   flex-direction: column;
 }
@@ -42,15 +42,22 @@
 /* --- Content Layout --- */
 .testimonials-content {
   display: flex;
+  flex-direction: column; /* Stack the rows vertically */
+  gap: 24px; /* Space between the rows */
+  width: 100%;
+}
+
+.testimonials-top-row {
+  display: flex;
   gap: 30px;
-  /* Align center ensures the fixed rating card stays vertically centered beside the 3 tall rows */
-  align-items: flex-start;
+  width: 100%;
+  align-items: stretch; /* Ensures the fixed card matches the marquee height */
 }
 
 /* --- Fixed Rating Card --- */
 .fixed-rating-card {
   width: 380px;
-  height: 250px; /* Fixed height so it stays a perfect square-ish shape */
+  height: 250px;
   flex-shrink: 0;
   background-color: #212124;
   border-radius: 24px;
@@ -58,7 +65,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding: 50px 30px;
   text-align: center;
   box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.02);
 }
@@ -102,14 +109,12 @@
   line-height: 1.5;
 }
 
-/* --- The Marquee Stack (3 Rows) --- */
-.marquee-stack {
+/* --- Individual Marquee Rows --- */
+.marquee-wrapper {
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Space between the rows */
+  width: 100%;
   overflow: hidden;
-  /* Fade left and right edges */
+  /* Blur mask applied directly to each row, pushing the blur to the far left/right edges */
   mask-image: linear-gradient(
     to right,
     transparent,
@@ -126,13 +131,9 @@
   );
 }
 
-.marquee-wrapper {
-  width: 100%;
-}
-
 .marquee-track {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   width: max-content;
   /* Default: Right to Left */
   animation: scrollMarquee 40s linear infinite;
@@ -143,10 +144,14 @@
   animation-direction: reverse;
 }
 
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 /* --- Individual Review Card --- */
 .testimonial-card {
   width: 380px;
-  height: 250px; /* Slightly shorter to stack nicely */
+  height: 250px;
   background-color: #212124;
   border-radius: 24px;
   padding: 30px;
@@ -162,7 +167,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f98b11; /* Orange quotes look sharp */
+  color: #f98b11;
   margin-bottom: 20px;
 }
 
@@ -171,7 +176,6 @@
   font-size: 1rem;
   line-height: 1.5;
   flex-grow: 1;
-  /* Clamps text to 4 lines with an ellipsis if it gets too long */
   display: -webkit-box;
   -webkit-line-clamp: 4;
   line-clamp: 4;
@@ -212,15 +216,15 @@
   }
   100% {
     transform: translateX(
-      calc(-50% - 10px)
-    ); /* -10px accounts for half the 20px gap */
+      calc(-50% - 12px)
+    ); /* 12px accounts for half the 24px gap */
   }
 }
 
 /* --- Responsive Design --- */
 @media (max-width: 1024px) {
-  .testimonials-content {
-    flex-direction: column;
+  .testimonials-top-row {
+    flex-direction: column; /* Stacks the fixed card on top of the first marquee on mobile */
   }
 
   .fixed-rating-card {

@@ -73,7 +73,6 @@ const App = () => {
 
           <Navbar />
 
-          {/* We use a shared wrapper to stack the components neatly */}
           <main className="main-content">
             <HeroText
               parallaxStyle={textParallaxStyle}
@@ -88,11 +87,9 @@ const App = () => {
       </div>
 
       <FeatureSection />
-      <div className="tools-stack-wrapper">
-        {/* Section 1: Sticks to the top first */}
-        <ToolsSection />
 
-        {/* Section 2: Slides over Section 1, sticks, then both scroll away */}
+      <div className="tools-stack-wrapper">
+        <ToolsSection />
         <ToolsSection2 />
         <ToolsSection3 />
       </div>
@@ -103,7 +100,6 @@ const App = () => {
       <CustomAssistantsSection />
       <TestimonialsSection />
       <Pricing />
-
       <FAQ />
       <CtaSection />
       <Footer />

@@ -41,7 +41,6 @@ const testimonials = [
 
 // Helper to create a single scrolling row
 const MarqueeRow = ({ reverse }) => {
-  // Shuffle array slightly for the reverse row so they don't look identical vertically
   const rowData = reverse ? [...testimonials].reverse() : testimonials;
   const loopData = [...rowData, ...rowData];
 
@@ -95,48 +94,50 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        {/* Content Layout */}
+        {/* Content Layout - Now Stacked Vertically */}
         <div className="testimonials-content">
-          {/* Fixed Left Card (Rating) */}
-          <div className="fixed-rating-card">
-            <div className="rating-score">4.8</div>
-            <div className="rating-stars">
-              {[...Array(5)].map((_, i) => (
-                <svg
-                  key={i}
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="#f98b11"
-                  stroke="#f98b11"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                </svg>
-              ))}
+          {/* ROW 1: Fixed Card + First Scrolling Marquee */}
+          <div className="testimonials-top-row">
+            <div className="fixed-rating-card">
+              <div className="rating-score">4.8</div>
+              <div className="rating-stars">
+                {[...Array(5)].map((_, i) => (
+                  <svg
+                    key={i}
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="#f98b11"
+                    stroke="#f98b11"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                ))}
+              </div>
+              <div className="avatar-group">
+                <img src="https://i.pravatar.cc/150?u=10" alt="User" />
+                <img src="https://i.pravatar.cc/150?u=11" alt="User" />
+                <img src="https://i.pravatar.cc/150?u=12" alt="User" />
+                <img src="https://i.pravatar.cc/150?u=13" alt="User" />
+                <img src="https://i.pravatar.cc/150?u=14" alt="User" />
+              </div>
+              <p className="rating-subtitle">
+                27K+ Downloads — Trusted by
+                <br />
+                Users for a Better Experience
+              </p>
             </div>
-            <div className="avatar-group">
-              <img src="https://i.pravatar.cc/150?u=10" alt="User" />
-              <img src="https://i.pravatar.cc/150?u=11" alt="User" />
-              <img src="https://i.pravatar.cc/150?u=12" alt="User" />
-              <img src="https://i.pravatar.cc/150?u=13" alt="User" />
-              <img src="https://i.pravatar.cc/150?u=14" alt="User" />
-            </div>
-            <p className="rating-subtitle">
-              27K+ Downloads — Trusted by
-              <br />
-              Users for a Better Experience
-            </p>
+
+            {/* Top Row Marquee */}
+            <MarqueeRow reverse={false} />
           </div>
 
-          {/* RIGHT COLUMN: 3 Scrolling Rows */}
-          <div className="marquee-stack">
-            <MarqueeRow reverse={false} /> {/* Right to Left */}
-            <MarqueeRow reverse={true} /> {/* Left to Right */}
-            <MarqueeRow reverse={false} /> {/* Right to Left */}
-          </div>
+          {/* ROW 2 & 3: Full Width Scrolling Marquees */}
+          <MarqueeRow reverse={true} />
+          <MarqueeRow reverse={false} />
         </div>
       </div>
     </section>

@@ -31,9 +31,6 @@ const CtaSection = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Calculate dynamic movement based on scroll progress
-  // When progress is 0, they are pushed inward by 150px.
-  // When progress is 1, they are pushed outward to 0px (their final corner position).
   const pushInward = (1 - scrollProgress) * 350;
 
   return (
